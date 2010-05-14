@@ -1,3 +1,5 @@
+#import "NSString+PonyExtensions.h"
+
 @implementation NSDictionary (PonyExtensions)
 
 + (NSDictionary *)dictionaryWithFormEncodedString:(NSString *)encodedString

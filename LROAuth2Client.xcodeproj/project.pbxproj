@@ -34,8 +34,9 @@
 		A3F8C132119DF00D0035081C /* NSURL+QueryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C130119DF00D0035081C /* NSURL+QueryInspector.m */; };
 		A3F8C24D119DF7420035081C /* NSDictionary+PonyExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C24B119DF7420035081C /* NSDictionary+PonyExtensions.m */; };
 		A3F8C24E119DF7420035081C /* NSString+PonyExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C24C119DF7420035081C /* NSString+PonyExtensions.m */; };
-		A3F8C255119DF7790035081C /* NSDictionary+PonyExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C254119DF7790035081C /* NSDictionary+PonyExtensions.h */; };
-		A3F8C259119DF79D0035081C /* NSString+PonyExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C258119DF79D0035081C /* NSString+PonyExtensions.h */; };
+		A3F8C255119DF7790035081C /* NSDictionary+PonyExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C254119DF7790035081C /* NSDictionary+PonyExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3F8C259119DF79D0035081C /* NSString+PonyExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C258119DF79D0035081C /* NSString+PonyExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3F8C275119DF8290035081C /* NSURL+QueryInspector.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C12F119DF00C0035081C /* NSURL+QueryInspector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -279,6 +280,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F8C275119DF8290035081C /* NSURL+QueryInspector.h in Headers */,
 				A3F8BFBF119DEE450035081C /* LROAuth2Client.h in Headers */,
 				A3F8BFC1119DEE450035081C /* LROAuth2ClientDelegate.h in Headers */,
 				A3F8BFC2119DEE450035081C /* LROAuth2AccessToken.h in Headers */,
