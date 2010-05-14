@@ -7,18 +7,13 @@
 //
 
 #import "NSURL+QueryInspector.h"
-
+#import "NSDictionary+PonyExtensions.m"
 
 @implementation NSURL (QueryInspector)
 
 - (NSDictionary *)queryDictionary;
 {
-  NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-  for (NSString *keyPair in [self.query componentsSeparatedByString:@"&"]) {
-    NSArray *components = [keyPair componentsSeparatedByString:@"="];
-    [dictionary setValue:[components objectAtIndex:1] forKey:[components objectAtIndex:0]];
-  }  
-  return [[dictionary copy] autorelease];
+  return [NSDictionary dictionaryWithFormEncodedString:self.query];
 }
 
 @end

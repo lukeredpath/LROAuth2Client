@@ -32,6 +32,10 @@
 		A3F8C125119DEFD50035081C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F8C124119DEFD50035081C /* SystemConfiguration.framework */; };
 		A3F8C127119DEFDE0035081C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F8C126119DEFDE0035081C /* UIKit.framework */; };
 		A3F8C132119DF00D0035081C /* NSURL+QueryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C130119DF00D0035081C /* NSURL+QueryInspector.m */; };
+		A3F8C24D119DF7420035081C /* NSDictionary+PonyExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C24B119DF7420035081C /* NSDictionary+PonyExtensions.m */; };
+		A3F8C24E119DF7420035081C /* NSString+PonyExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C24C119DF7420035081C /* NSString+PonyExtensions.m */; };
+		A3F8C255119DF7790035081C /* NSDictionary+PonyExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C254119DF7790035081C /* NSDictionary+PonyExtensions.h */; };
+		A3F8C259119DF79D0035081C /* NSString+PonyExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C258119DF79D0035081C /* NSString+PonyExtensions.h */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +86,10 @@
 		A3F8C126119DEFDE0035081C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3F8C12F119DF00C0035081C /* NSURL+QueryInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+QueryInspector.h"; sourceTree = "<group>"; };
 		A3F8C130119DF00D0035081C /* NSURL+QueryInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+QueryInspector.m"; sourceTree = "<group>"; };
+		A3F8C24B119DF7420035081C /* NSDictionary+PonyExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+PonyExtensions.m"; sourceTree = "<group>"; };
+		A3F8C24C119DF7420035081C /* NSString+PonyExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PonyExtensions.m"; sourceTree = "<group>"; };
+		A3F8C254119DF7790035081C /* NSDictionary+PonyExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+PonyExtensions.h"; sourceTree = "<group>"; };
+		A3F8C258119DF79D0035081C /* NSString+PonyExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PonyExtensions.h"; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* LROAuth2Client_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LROAuth2Client_Prefix.pch; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libLROAuth2Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLROAuth2Client.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +261,10 @@
 		A3F8C12D119DEFF80035081C /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				A3F8C254119DF7790035081C /* NSDictionary+PonyExtensions.h */,
+				A3F8C24B119DF7420035081C /* NSDictionary+PonyExtensions.m */,
+				A3F8C258119DF79D0035081C /* NSString+PonyExtensions.h */,
+				A3F8C24C119DF7420035081C /* NSString+PonyExtensions.m */,
 				A3F8C12F119DF00C0035081C /* NSURL+QueryInspector.h */,
 				A3F8C130119DF00D0035081C /* NSURL+QueryInspector.m */,
 			);
@@ -270,6 +282,8 @@
 				A3F8BFBF119DEE450035081C /* LROAuth2Client.h in Headers */,
 				A3F8BFC1119DEE450035081C /* LROAuth2ClientDelegate.h in Headers */,
 				A3F8BFC2119DEE450035081C /* LROAuth2AccessToken.h in Headers */,
+				A3F8C255119DF7790035081C /* NSDictionary+PonyExtensions.h in Headers */,
+				A3F8C259119DF79D0035081C /* NSString+PonyExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +350,8 @@
 				A3F8C11C119DEF930035081C /* CJSONSerializer.m in Sources */,
 				A3F8C11E119DEF930035081C /* CSerializedJSONData.m in Sources */,
 				A3F8C132119DF00D0035081C /* NSURL+QueryInspector.m in Sources */,
+				A3F8C24D119DF7420035081C /* NSDictionary+PonyExtensions.m in Sources */,
+				A3F8C24E119DF7420035081C /* NSString+PonyExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
