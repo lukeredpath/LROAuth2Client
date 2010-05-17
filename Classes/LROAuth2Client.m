@@ -115,7 +115,7 @@
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
   if (self.debug) {
-    NSLog(@"[oauth] finished verification request, response %d", [request responseStatusCode]);
+    NSLog(@"[oauth] finished verification request, %@ (%d)", [request responseString], [request responseStatusCode]);
   }
   isVerifying = NO;
 }
@@ -166,7 +166,7 @@
 {
   NSString *failingURLString = [error.userInfo objectForKey:NSErrorFailingURLStringKey];
   
-  if ([failingURLString hasPrefix:@"spark://"]) {
+  if ([failingURLString hasPrefix:[self.redirectURL absoluteString]]) {
     [webView stopLoading];
     
     NSURL *callbackURL = [NSURL URLWithString:failingURLString];
