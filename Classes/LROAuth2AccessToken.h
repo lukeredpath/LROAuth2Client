@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface LROAuth2AccessToken : UIView {
+@interface LROAuth2AccessToken : UIView <NSCoding> {
   NSDictionary *authResponseData;
   NSDate *expiresAt;
 }

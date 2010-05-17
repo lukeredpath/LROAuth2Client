@@ -56,4 +56,22 @@
   return [authResponseData valueForKey:@"refresh_token"];
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+  [aCoder encodeObject:authResponseData forKey:@"data"];
+  [aCoder encodeObject:expiresAt forKey:@"expiresAt"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+  if (self = [super init]) {
+    authResponseData = [[aDecoder decodeObjectForKey:@"data"] copy];
+    expiresAt = [[aDecoder decodeObjectForKey:@"expiresAt"] retain];
+  }
+  return self;
+}
+
 @end
