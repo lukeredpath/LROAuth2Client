@@ -1,6 +1,6 @@
-#import "NSString+PonyExtensions.h"
+#import "NSString+QueryString.h"
 
-@implementation NSDictionary (PonyExtensions)
+@implementation NSDictionary (QueryString)
 
 + (NSDictionary *)dictionaryWithFormEncodedString:(NSString *)encodedString
 {

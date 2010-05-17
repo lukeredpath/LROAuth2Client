@@ -1,4 +1,4 @@
-@interface NSString (PonyExtensions)
+@interface NSString (QueryString)
 - (NSString*)stringByEscapingForURLQuery;
 - (NSString*)stringByUnescapingFromURLQuery;
 @end

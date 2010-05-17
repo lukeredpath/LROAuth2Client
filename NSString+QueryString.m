@@ -1,6 +1,6 @@
-#import "NSString+PonyExtensions.h"
+#import "NSString+QueryString.h"
 
-@implementation NSString (PonyExtensions)
+@implementation NSString (QueryString)
 
 - (NSString*)stringByEscapingForURLQuery
 {
