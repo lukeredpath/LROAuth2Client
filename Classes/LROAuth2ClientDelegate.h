@@ -15,5 +15,6 @@
 @optional
 - (void)oauthClientDidReceiveAccessCode:(LROAuth2Client *)client;
 - (void)oauthClientDidReceiveAccessToken:(LROAuth2Client *)client;
+- (void)oauthClientDidRefreshAccessToken:(LROAuth2Client *)client;
 
 @end

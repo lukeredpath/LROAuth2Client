@@ -18,5 +18,6 @@
 @property (nonatomic, readonly) NSDate *expiresAt;
 
 - (id)initWithAuthorizationResponse:(NSDictionary *)_data;
+- (void)refreshFromAuthorizationResponse:(NSDictionary *)_data;
 - (BOOL)hasExpired;
 @end

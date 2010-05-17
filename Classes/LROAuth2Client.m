@@ -84,6 +84,21 @@
   }
 }
 
+- (void)refreshAccessToken:(LROAuth2AccessToken *)_accessToken;
+{
+  accessToken = [_accessToken retain];
+  
+  NSString *postBody = [NSString stringWithFormat:
+                        @"type=refresh&client_id=%@&redirect_uri=%@&client_secret=%@&refresh_token=%@", 
+                        clientID, redirectURL, clientSecret, _accessToken.refreshToken];
+
+  ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:self.tokenURL];
+  [request setRequestMethod:@"POST"];
+  [request appendPostData:[postBody dataUsingEncoding:NSUTF8StringEncoding]];
+  [request setDelegate:self];
+  [request startAsynchronous];
+}
+
 #pragma mark -
 #pragma mark Authorization data accessors
 
@@ -100,9 +115,16 @@
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
   if (self.debug) {
-    NSLog(@"[oauth] finished verification request");
+    NSLog(@"[oauth] finished verification request, response %d", [request responseStatusCode]);
   }
   isVerifying = NO;
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+  if (self.debug) {
+    NSLog(@"[oauth] request failed with code %d, %@", [request responseStatusCode], [request responseString]);
+  }
 }
 
 - (void)request:(ASIHTTPRequest *)request didReceiveData:(NSData *)data
@@ -110,12 +132,18 @@
   NSError *parseError = nil;
   NSDictionary *authorizationData = [[CJSONDeserializer deserializer] deserializeAsDictionary:data error:&parseError];
   
-  accessToken = [[LROAuth2AccessToken alloc] initWithAuthorizationResponse:authorizationData];
-  
   if (parseError == nil) {
-    if ([self.delegate respondsToSelector:@selector(oauthClientDidReceiveAccessToken:)]) {
-      [self.delegate oauthClientDidReceiveAccessToken:self];
-    } 
+    if (accessToken == nil) {
+      accessToken = [[LROAuth2AccessToken alloc] initWithAuthorizationResponse:authorizationData];
+      if ([self.delegate respondsToSelector:@selector(oauthClientDidReceiveAccessToken:)]) {
+        [self.delegate oauthClientDidReceiveAccessToken:self];
+      } 
+    } else {
+      [accessToken refreshFromAuthorizationResponse:authorizationData];
+      if ([self.delegate respondsToSelector:@selector(oauthClientDidRefreshAccessToken:)]) {
+        [self.delegate oauthClientDidRefreshAccessToken:self];
+      } 
+    }
   }
 }
 

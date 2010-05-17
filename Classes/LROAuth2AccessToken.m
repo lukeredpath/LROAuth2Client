@@ -43,6 +43,19 @@
   return ([[NSDate date] earlierDate:expiresAt] == expiresAt);
 }
 
+- (void)refreshFromAuthorizationResponse:(NSDictionary *)_data;
+{
+  NSMutableDictionary *_tokenData = [authResponseData mutableCopy];
+  [_tokenData setValue:[_data valueForKey:@"access_token"] forKey:@"access_token"];
+  
+  NSTimeInterval expiresIn = (NSTimeInterval)[[authResponseData valueForKey:@"expires_in"] intValue];
+  expiresAt = [[NSDate alloc] initWithTimeIntervalSinceNow:expiresIn];
+  
+  [authResponseData release];
+  authResponseData = [_tokenData copy];
+  [_tokenData release];
+}
+
 #pragma mark -
 #pragma mark Dynamic accessors
 
