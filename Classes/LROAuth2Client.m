@@ -19,7 +19,8 @@
 @synthesize clientID;
 @synthesize clientSecret;
 @synthesize redirectURL;
-@synthesize verificationURL;
+@synthesize userURL;
+@synthesize tokenURL;
 @synthesize delegate;
 @synthesize accessToken;
 @synthesize debug;
@@ -42,7 +43,8 @@
   [accessToken release];
   [clientID release];
   [clientSecret release];
-  [verificationURL release];
+  [userURL release];
+  [tokenURL release];
   [redirectURL release];
   [super dealloc];
 }
@@ -50,13 +52,13 @@
 #pragma mark -
 #pragma mark Authorization
 
-- (NSURLRequest *)requestForAuthorizationWithURL:(NSURL *)baseURL;
+- (NSURLRequest *)userAuthorizationRequest;
 {
   NSString *queryString = [NSString stringWithFormat:
                            @"type=web_server&client_id=%@&redirect_uri=%@", 
                            clientID, redirectURL];
   
-  NSURL *fullURL = [NSURL URLWithString:[[baseURL absoluteString] stringByAppendingFormat:@"?%@", queryString]];
+  NSURL *fullURL = [NSURL URLWithString:[[self.userURL absoluteString] stringByAppendingFormat:@"?%@", queryString]];
   NSMutableURLRequest *authRequest = [NSMutableURLRequest requestWithURL:fullURL];
   [authRequest setHTTPMethod:@"GET"];
 
@@ -74,7 +76,7 @@
                              @"type=web_server&client_id=%@&redirect_uri=%@&client_secret=%@&code=%@", 
                              clientID, redirectURL, clientSecret, accessCode];
     
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:self.verificationURL];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:self.tokenURL];
     [request setRequestMethod:@"POST"];
     [request appendPostData:[postBody dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
@@ -121,10 +123,10 @@
 
 @implementation LROAuth2Client (UIWebViewIntegration)
 
-- (void)authorizeUsingWebView:(UIWebView *)webView url:(NSURL *)authURL;
+- (void)authorizeUsingWebView:(UIWebView *)webView;
 {
   [webView setDelegate:self];
-  [webView loadRequest:[self requestForAuthorizationWithURL:authURL]];
+  [webView loadRequest:[self userAuthorizationRequest]];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType

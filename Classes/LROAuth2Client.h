@@ -16,7 +16,8 @@
   NSString *clientID;
   NSString *clientSecret;
   NSURL *redirectURL;
-  NSURL *verificationURL;
+  NSURL *userURL;
+  NSURL *tokenURL;
   LROAuth2AccessToken *accessToken;
   id<LROAuth2ClientDelegate> delegate;
   BOOL debug;
@@ -27,7 +28,8 @@
 @property (nonatomic, copy) NSString *clientID;
 @property (nonatomic, copy) NSString *clientSecret;
 @property (nonatomic, copy) NSURL *redirectURL;
-@property (nonatomic, copy) NSURL *verificationURL;
+@property (nonatomic, copy) NSURL *userURL;
+@property (nonatomic, copy) NSURL *tokenURL;
 @property (nonatomic, readonly) LROAuth2AccessToken *accessToken;
 @property (nonatomic, assign) id<LROAuth2ClientDelegate> delegate;
 @property (nonatomic, assign) BOOL debug;
@@ -36,9 +38,10 @@
                 secret:(NSString *)_secret 
            redirectURL:(NSURL *)url;
 
-- (NSURLRequest *)requestForAuthorizationWithURL:(NSURL *)baseURL;
+- (NSURLRequest *)userAuthorizationRequest;
+- (void)verifyAuthorizationWithAccessCode:(NSString *)accessCode;
 @end
 
 @interface LROAuth2Client (UIWebViewIntegration) <UIWebViewDelegate>
-- (void)authorizeUsingWebView:(UIWebView *)webView url:(NSURL *)authURL;
+- (void)authorizeUsingWebView:(UIWebView *)webView;
 @end
