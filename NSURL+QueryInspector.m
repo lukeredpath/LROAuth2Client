@@ -7,7 +7,7 @@
 //
 
 #import "NSURL+QueryInspector.h"
-#import "NSDictionary+PonyExtensions.h"
+#import "NSDictionary+QueryString.h"
 
 @implementation NSURL (QueryInspector)
 
