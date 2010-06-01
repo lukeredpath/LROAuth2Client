@@ -147,17 +147,24 @@
   NSError *parseError = nil;
   NSDictionary *authorizationData = [[CJSONDeserializer deserializer] deserializeAsDictionary:data error:&parseError];
   
-  if (parseError == nil) {
-    if (accessToken == nil) {
-      accessToken = [[LROAuth2AccessToken alloc] initWithAuthorizationResponse:authorizationData];
-      if ([self.delegate respondsToSelector:@selector(oauthClientDidReceiveAccessToken:)]) {
-        [self.delegate oauthClientDidReceiveAccessToken:self];
-      } 
-    } else {
-      [accessToken refreshFromAuthorizationResponse:authorizationData];
-      if ([self.delegate respondsToSelector:@selector(oauthClientDidRefreshAccessToken:)]) {
-        [self.delegate oauthClientDidRefreshAccessToken:self];
-      } 
+  if (parseError) {
+    // try and decode the response body as a query string instead
+    NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    authorizationData = [NSDictionary dictionaryWithFormEncodedString:responseString];
+    if ([authorizationData valueForKey:@"access_token"] == nil) { 
+      // TODO handle complete parsing failure
+      NSAssert(NO, @"Unhandled parsing failure");
+    }
+  }  
+  if (accessToken == nil) {
+    accessToken = [[LROAuth2AccessToken alloc] initWithAuthorizationResponse:authorizationData];
+    if ([self.delegate respondsToSelector:@selector(oauthClientDidReceiveAccessToken:)]) {
+      [self.delegate oauthClientDidReceiveAccessToken:self];
+    } 
+  } else {
+    [accessToken refreshFromAuthorizationResponse:authorizationData];
+    if ([self.delegate respondsToSelector:@selector(oauthClientDidRefreshAccessToken:)]) {
+      [self.delegate oauthClientDidRefreshAccessToken:self];
     }
   }
 }
@@ -172,26 +179,37 @@
   [webView loadRequest:[self userAuthorizationRequest]];
 }
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
+{  
+  if ([[request.URL absoluteString] hasPrefix:[self.redirectURL absoluteString]]) {
+    [self extractAccessCodeFromCallbackURL:request.URL];
+
+    return NO;
+  }
   return YES;
 }
 
+/**
+ * custom URL schemes will typically cause a failure so we should handle those here
+ */
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
   NSString *failingURLString = [error.userInfo objectForKey:NSErrorFailingURLStringKey];
   
   if ([failingURLString hasPrefix:[self.redirectURL absoluteString]]) {
     [webView stopLoading];
-    
-    NSURL *callbackURL = [NSURL URLWithString:failingURLString];
-    NSString *accessCode = [[callbackURL queryDictionary] valueForKey:@"code"];
-    
-    if ([self.delegate respondsToSelector:@selector(oauthClientDidReceiveAccessCode:)]) {
-      [self.delegate oauthClientDidReceiveAccessCode:self];
-    }
-    [self verifyAuthorizationWithAccessCode:accessCode];
+    [self extractAccessCodeFromCallbackURL:[NSURL URLWithString:failingURLString]];
   }
+}
+
+- (void)extractAccessCodeFromCallbackURL:(NSURL *)callbackURL;
+{
+  NSString *accessCode = [[callbackURL queryDictionary] valueForKey:@"code"];
+  
+  if ([self.delegate respondsToSelector:@selector(oauthClientDidReceiveAccessCode:)]) {
+    [self.delegate oauthClientDidReceiveAccessCode:self];
+  }
+  [self verifyAuthorizationWithAccessCode:accessCode];
 }
 
 @end
