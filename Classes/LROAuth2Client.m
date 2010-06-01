@@ -108,9 +108,6 @@
 }
 
 #pragma mark -
-#pragma mark Authorization data accessors
-
-#pragma mark -
 #pragma mark ASIHTTPRequestDelegate methods
 
 - (void)requestStarted:(ASIHTTPRequest *)request
