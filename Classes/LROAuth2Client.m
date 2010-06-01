@@ -34,6 +34,7 @@
     clientID = [_clientID copy];
     clientSecret = [_secret copy];
     redirectURL = [url copy];
+    requests = [[NSMutableArray alloc] init];
     debug = NO;
   }
   return self;
@@ -41,6 +42,11 @@
 
 - (void)dealloc;
 {
+  for (ASIHTTPRequest *request in requests) {
+    [request setDelegate:nil];
+    [request cancel];
+  }
+  [requests release];
   [accessToken release];
   [clientID release];
   [clientSecret release];
@@ -85,6 +91,7 @@
     [request setRequestMethod:@"POST"];
     [request appendPostData:[[params stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
+    [requests addObject:request];
     [request startAsynchronous];
   }
 }
@@ -104,6 +111,7 @@
   [request setRequestMethod:@"POST"];
   [request appendPostData:[[params stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
   [request setDelegate:self];
+  [requests addObject:request];
   [request startAsynchronous];
 }
 
@@ -123,6 +131,8 @@
     NSLog(@"[oauth] finished verification request, %@ (%d)", [request responseString], [request responseStatusCode]);
   }
   isVerifying = NO;
+  
+  [requests removeObject:request];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request

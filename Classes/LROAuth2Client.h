@@ -19,6 +19,7 @@
   NSURL *userURL;
   NSURL *tokenURL;
   LROAuth2AccessToken *accessToken;
+  NSMutableArray *requests;
   id<LROAuth2ClientDelegate> delegate;
   BOOL debug;
   
@@ -45,4 +46,5 @@
 
 @interface LROAuth2Client (UIWebViewIntegration) <UIWebViewDelegate>
 - (void)authorizeUsingWebView:(UIWebView *)webView;
+- (void)extractAccessCodeFromCallbackURL:(NSURL *)url;
 @end
