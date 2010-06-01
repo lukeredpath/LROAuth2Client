@@ -6,40 +6,6 @@
 	objectVersion = 45;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		A3F8BFBF119DEE450035081C /* LROAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBA119DEE450035081C /* LROAuth2Client.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A3F8BFC0119DEE450035081C /* LROAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8BFBB119DEE450035081C /* LROAuth2Client.m */; };
-		A3F8BFC1119DEE450035081C /* LROAuth2ClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBC119DEE450035081C /* LROAuth2ClientDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A3F8BFC2119DEE450035081C /* LROAuth2AccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBD119DEE450035081C /* LROAuth2AccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A3F8BFC3119DEE450035081C /* LROAuth2AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8BFBE119DEE450035081C /* LROAuth2AccessToken.m */; };
-		A3F8C0DD119DEF400035081C /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0CF119DEF400035081C /* ASIAuthenticationDialog.m */; };
-		A3F8C0DF119DEF400035081C /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0D1119DEF400035081C /* ASIFormDataRequest.m */; };
-		A3F8C0E1119DEF400035081C /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0D3119DEF400035081C /* ASIHTTPRequest.m */; };
-		A3F8C0E4119DEF400035081C /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0D6119DEF400035081C /* ASIInputStream.m */; };
-		A3F8C0E6119DEF400035081C /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0D8119DEF400035081C /* ASINetworkQueue.m */; };
-		A3F8C0E8119DEF400035081C /* ASINSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0DA119DEF400035081C /* ASINSStringAdditions.m */; };
-		A3F8C0F2119DEF770035081C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0F0119DEF770035081C /* Reachability.m */; };
-		A3F8C10C119DEF930035081C /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0F6119DEF930035081C /* CDataScanner.m */; };
-		A3F8C10E119DEF930035081C /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0F9119DEF930035081C /* CDataScanner_Extensions.m */; };
-		A3F8C110119DEF930035081C /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0FB119DEF930035081C /* NSCharacterSet_Extensions.m */; };
-		A3F8C112119DEF930035081C /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0FD119DEF930035081C /* NSDictionary_JSONExtensions.m */; };
-		A3F8C114119DEF930035081C /* NSScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0FF119DEF930035081C /* NSScanner_Extensions.m */; };
-		A3F8C116119DEF930035081C /* CJSONDataSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C102119DEF930035081C /* CJSONDataSerializer.m */; };
-		A3F8C118119DEF930035081C /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C104119DEF930035081C /* CJSONDeserializer.m */; };
-		A3F8C11A119DEF930035081C /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C106119DEF930035081C /* CJSONScanner.m */; };
-		A3F8C11C119DEF930035081C /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C108119DEF930035081C /* CJSONSerializer.m */; };
-		A3F8C11E119DEF930035081C /* CSerializedJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C10A119DEF930035081C /* CSerializedJSONData.m */; };
-		A3F8C125119DEFD50035081C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F8C124119DEFD50035081C /* SystemConfiguration.framework */; };
-		A3F8C127119DEFDE0035081C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F8C126119DEFDE0035081C /* UIKit.framework */; };
-		A3F8C132119DF00D0035081C /* NSURL+QueryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C130119DF00D0035081C /* NSURL+QueryInspector.m */; };
-		A3F8C24D119DF7420035081C /* NSDictionary+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C24B119DF7420035081C /* NSDictionary+QueryString.m */; };
-		A3F8C24E119DF7420035081C /* NSString+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C24C119DF7420035081C /* NSString+QueryString.m */; };
-		A3F8C255119DF7790035081C /* NSDictionary+QueryString.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C254119DF7790035081C /* NSDictionary+QueryString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A3F8C259119DF79D0035081C /* NSString+QueryString.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C258119DF79D0035081C /* NSString+QueryString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A3F8C275119DF8290035081C /* NSURL+QueryInspector.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C12F119DF00C0035081C /* NSURL+QueryInspector.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		A3F8BFBA119DEE450035081C /* LROAuth2Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LROAuth2Client.h; sourceTree = "<group>"; };
 		A3F8BFBB119DEE450035081C /* LROAuth2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LROAuth2Client.m; sourceTree = "<group>"; };
@@ -93,27 +59,12 @@
 		A3F8C258119DF79D0035081C /* NSString+QueryString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QueryString.h"; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* LROAuth2Client_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LROAuth2Client_Prefix.pch; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D2AAC07E0554694100DB518D /* libLROAuth2Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLROAuth2Client.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		D2AAC07C0554694100DB518D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
-				A3F8C125119DEFD50035081C /* SystemConfiguration.framework in Frameworks */,
-				A3F8C127119DEFDE0035081C /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC07E0554694100DB518D /* libLROAuth2Client.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,42 +226,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		D2AAC07A0554694100DB518D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A3F8C275119DF8290035081C /* NSURL+QueryInspector.h in Headers */,
-				A3F8BFBF119DEE450035081C /* LROAuth2Client.h in Headers */,
-				A3F8BFC1119DEE450035081C /* LROAuth2ClientDelegate.h in Headers */,
-				A3F8BFC2119DEE450035081C /* LROAuth2AccessToken.h in Headers */,
-				A3F8C255119DF7790035081C /* NSDictionary+QueryString.h in Headers */,
-				A3F8C259119DF79D0035081C /* NSString+QueryString.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
-/* Begin PBXNativeTarget section */
-		D2AAC07D0554694100DB518D /* LROAuth2Client */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "LROAuth2Client" */;
-			buildPhases = (
-				D2AAC07A0554694100DB518D /* Headers */,
-				D2AAC07B0554694100DB518D /* Sources */,
-				D2AAC07C0554694100DB518D /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = LROAuth2Client;
-			productName = Untitled;
-			productReference = D2AAC07E0554694100DB518D /* libLROAuth2Client.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-/* End PBXNativeTarget section */
-
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
@@ -322,76 +237,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* LROAuth2Client */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXSourcesBuildPhase section */
-		D2AAC07B0554694100DB518D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A3F8BFC0119DEE450035081C /* LROAuth2Client.m in Sources */,
-				A3F8BFC3119DEE450035081C /* LROAuth2AccessToken.m in Sources */,
-				A3F8C0DD119DEF400035081C /* ASIAuthenticationDialog.m in Sources */,
-				A3F8C0DF119DEF400035081C /* ASIFormDataRequest.m in Sources */,
-				A3F8C0E1119DEF400035081C /* ASIHTTPRequest.m in Sources */,
-				A3F8C0E4119DEF400035081C /* ASIInputStream.m in Sources */,
-				A3F8C0E6119DEF400035081C /* ASINetworkQueue.m in Sources */,
-				A3F8C0E8119DEF400035081C /* ASINSStringAdditions.m in Sources */,
-				A3F8C0F2119DEF770035081C /* Reachability.m in Sources */,
-				A3F8C10C119DEF930035081C /* CDataScanner.m in Sources */,
-				A3F8C10E119DEF930035081C /* CDataScanner_Extensions.m in Sources */,
-				A3F8C110119DEF930035081C /* NSCharacterSet_Extensions.m in Sources */,
-				A3F8C112119DEF930035081C /* NSDictionary_JSONExtensions.m in Sources */,
-				A3F8C114119DEF930035081C /* NSScanner_Extensions.m in Sources */,
-				A3F8C116119DEF930035081C /* CJSONDataSerializer.m in Sources */,
-				A3F8C118119DEF930035081C /* CJSONDeserializer.m in Sources */,
-				A3F8C11A119DEF930035081C /* CJSONScanner.m in Sources */,
-				A3F8C11C119DEF930035081C /* CJSONSerializer.m in Sources */,
-				A3F8C11E119DEF930035081C /* CSerializedJSONData.m in Sources */,
-				A3F8C132119DF00D0035081C /* NSURL+QueryInspector.m in Sources */,
-				A3F8C24D119DF7420035081C /* NSDictionary+QueryString.m in Sources */,
-				A3F8C24E119DF7420035081C /* NSString+QueryString.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
 /* Begin XCBuildConfiguration section */
-		1DEB921F08733DC00010E9CD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/Untitled.dst;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = LROAuth2Client_Prefix.pch;
-				INSTALL_PATH = /usr/local/lib;
-				PRODUCT_NAME = LROAuth2Client;
-			};
-			name = Debug;
-		};
-		1DEB922008733DC00010E9CD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				DSTROOT = /tmp/Untitled.dst;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = LROAuth2Client_Prefix.pch;
-				INSTALL_PATH = /usr/local/lib;
-				PRODUCT_NAME = LROAuth2Client;
-			};
-			name = Release;
-		};
 		1DEB922308733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -422,15 +272,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "LROAuth2Client" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1DEB921F08733DC00010E9CD /* Debug */,
-				1DEB922008733DC00010E9CD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "LROAuth2Client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
