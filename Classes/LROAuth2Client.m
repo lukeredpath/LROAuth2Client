@@ -11,6 +11,7 @@
 #import "NSURL+QueryInspector.h"
 #import "CJSONDeserializer.h"
 #import "LROAuth2AccessToken.h"
+#import "NSDictionary+QueryString.h"
 
 #pragma mark -
 
@@ -54,11 +55,12 @@
 
 - (NSURLRequest *)userAuthorizationRequest;
 {
-  NSString *queryString = [NSString stringWithFormat:
-                           @"type=web_server&client_id=%@&redirect_uri=%@", 
-                           clientID, redirectURL];
+  NSDictionary *params = [NSMutableDictionary dictionary];
+  [params setValue:@"web_server" forKey:@"type"];
+  [params setValue:clientID forKey:@"client_id"];
+  [params setValue:[redirectURL absoluteString] forKey:@"redirect_uri"];
   
-  NSURL *fullURL = [NSURL URLWithString:[[self.userURL absoluteString] stringByAppendingFormat:@"?%@", queryString]];
+  NSURL *fullURL = [NSURL URLWithString:[[self.userURL absoluteString] stringByAppendingFormat:@"?%@", [params stringWithFormEncodedComponents]]];
   NSMutableURLRequest *authRequest = [NSMutableURLRequest requestWithURL:fullURL];
   [authRequest setHTTPMethod:@"GET"];
 
@@ -72,13 +74,16 @@
     
     isVerifying = YES;
     
-    NSString *postBody = [NSString stringWithFormat:
-                             @"type=web_server&client_id=%@&redirect_uri=%@&client_secret=%@&code=%@", 
-                             clientID, redirectURL, clientSecret, accessCode];
+    NSDictionary *params = [NSMutableDictionary dictionary];
+    [params setValue:@"web_server" forKey:@"type"];
+    [params setValue:clientID forKey:@"client_id"];
+    [params setValue:[redirectURL absoluteString] forKey:@"redirect_uri"];
+    [params setValue:clientSecret forKey:@"client_secret"];
+    [params setValue:accessCode forKey:@"code"];
     
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:self.tokenURL];
     [request setRequestMethod:@"POST"];
-    [request appendPostData:[postBody dataUsingEncoding:NSUTF8StringEncoding]];
+    [request appendPostData:[[params stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
     [request startAsynchronous];
   }
@@ -88,13 +93,16 @@
 {
   accessToken = [_accessToken retain];
   
-  NSString *postBody = [NSString stringWithFormat:
-                        @"type=refresh&client_id=%@&redirect_uri=%@&client_secret=%@&refresh_token=%@", 
-                        clientID, redirectURL, clientSecret, _accessToken.refreshToken];
-
+  NSDictionary *params = [NSMutableDictionary dictionary];
+  [params setValue:@"refresh" forKey:@"type"];
+  [params setValue:clientID forKey:@"client_id"];
+  [params setValue:[redirectURL absoluteString] forKey:@"redirect_uri"];
+  [params setValue:clientSecret forKey:@"client_secret"];
+  [params setValue:_accessToken.refreshToken forKey:@"refresh_token"];
+  
   ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:self.tokenURL];
   [request setRequestMethod:@"POST"];
-  [request appendPostData:[postBody dataUsingEncoding:NSUTF8StringEncoding]];
+  [request appendPostData:[[params stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
   [request setDelegate:self];
   [request startAsynchronous];
 }
