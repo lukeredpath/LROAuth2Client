@@ -59,13 +59,18 @@
 #pragma mark -
 #pragma mark Authorization
 
-- (NSURLRequest *)userAuthorizationRequest;
+- (NSURLRequest *)userAuthorizationRequestWithParameters:(NSDictionary *)additionalParameters;
 {
   NSDictionary *params = [NSMutableDictionary dictionary];
   [params setValue:@"web_server" forKey:@"type"];
   [params setValue:clientID forKey:@"client_id"];
   [params setValue:[redirectURL absoluteString] forKey:@"redirect_uri"];
   
+  if (additionalParameters) {
+    for (NSString *key in additionalParameters) {
+      [params setValue:[additionalParameters valueForKey:key] forKey:key];
+    }
+  }  
   NSURL *fullURL = [NSURL URLWithString:[[self.userURL absoluteString] stringByAppendingFormat:@"?%@", [params stringWithFormEncodedComponents]]];
   NSMutableURLRequest *authRequest = [NSMutableURLRequest requestWithURL:fullURL];
   [authRequest setHTTPMethod:@"GET"];
@@ -177,8 +182,13 @@
 
 - (void)authorizeUsingWebView:(UIWebView *)webView;
 {
+  [self authorizeUsingWebView:webView additionalParameters:nil];
+}
+
+- (void)authorizeUsingWebView:(UIWebView *)webView additionalParameters:(NSDictionary *)additionalParameters;
+{
   [webView setDelegate:self];
-  [webView loadRequest:[self userAuthorizationRequest]];
+  [webView loadRequest:[self userAuthorizationRequestWithParameters:additionalParameters]];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;

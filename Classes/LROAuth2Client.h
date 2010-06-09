@@ -39,12 +39,13 @@
                 secret:(NSString *)_secret 
            redirectURL:(NSURL *)url;
 
-- (NSURLRequest *)userAuthorizationRequest;
+- (NSURLRequest *)userAuthorizationRequestWithParameters:(NSDictionary *)additionalParameters;
 - (void)verifyAuthorizationWithAccessCode:(NSString *)accessCode;
 - (void)refreshAccessToken:(LROAuth2AccessToken *)_accessToken;
 @end
 
 @interface LROAuth2Client (UIWebViewIntegration) <UIWebViewDelegate>
 - (void)authorizeUsingWebView:(UIWebView *)webView;
+- (void)authorizeUsingWebView:(UIWebView *)webView additionalParameters:(NSDictionary *)additionalParameters;
 - (void)extractAccessCodeFromCallbackURL:(NSURL *)url;
 @end
