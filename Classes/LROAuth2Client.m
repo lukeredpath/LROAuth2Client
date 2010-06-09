@@ -89,6 +89,7 @@
     
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:self.tokenURL];
     [request setRequestMethod:@"POST"];
+    [request addRequestHeader:@"Content-Type" value:@"application/x-www-form-urlencoded"];
     [request appendPostData:[[params stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
     [requests addObject:request];
@@ -109,6 +110,7 @@
   
   ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:self.tokenURL];
   [request setRequestMethod:@"POST"];
+  [request addRequestHeader:@"Content-Type" value:@"application/x-www-form-urlencoded"];
   [request appendPostData:[[params stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
   [request setDelegate:self];
   [requests addObject:request];
