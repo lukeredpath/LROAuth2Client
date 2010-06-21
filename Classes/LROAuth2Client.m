@@ -9,7 +9,7 @@
 #import "LROAuth2Client.h"
 #import "ASIHTTPRequest.h"
 #import "NSURL+QueryInspector.h"
-#import "CJSONDeserializer.h"
+#import "NSObject+YAJL.h"
 #import "LROAuth2AccessToken.h"
 #import "NSDictionary+QueryString.h"
 
@@ -152,7 +152,7 @@
 - (void)request:(ASIHTTPRequest *)request didReceiveData:(NSData *)data
 {
   NSError *parseError = nil;
-  NSDictionary *authorizationData = [[CJSONDeserializer deserializer] deserializeAsDictionary:data error:&parseError];
+  NSDictionary *authorizationData = [data yajl_JSON:&parseError];
   
   if (parseError) {
     // try and decode the response body as a query string instead
