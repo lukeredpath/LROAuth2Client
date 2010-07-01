@@ -20,6 +20,7 @@
 @synthesize clientID;
 @synthesize clientSecret;
 @synthesize redirectURL;
+@synthesize cancelURL;
 @synthesize userURL;
 @synthesize tokenURL;
 @synthesize delegate;
@@ -53,6 +54,7 @@
   [userURL release];
   [tokenURL release];
   [redirectURL release];
+  [cancelURL release];
   [super dealloc];
 }
 
@@ -197,6 +199,12 @@
     [self extractAccessCodeFromCallbackURL:request.URL];
 
     return NO;
+  } else if (self.cancelURL && [[request.URL absoluteString] hasPrefix:[self.cancelURL absoluteString]]) {
+    if ([self.delegate respondsToSelector:@selector(oauthClientDidCancel:)]) {
+      [self.delegate oauthClientDidCancel:self];
+    }
+    
+    return NO;
   }
   return YES;
 }
@@ -211,6 +219,11 @@
   if ([failingURLString hasPrefix:[self.redirectURL absoluteString]]) {
     [webView stopLoading];
     [self extractAccessCodeFromCallbackURL:[NSURL URLWithString:failingURLString]];
+  } else if (self.cancelURL && [failingURLString hasPrefix:[self.cancelURL absoluteString]]) {
+    [webView stopLoading];
+    if ([self.delegate respondsToSelector:@selector(oauthClientDidCancel:)]) {
+      [self.delegate oauthClientDidCancel:self];
+    }
   }
 }
 

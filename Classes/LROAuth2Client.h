@@ -16,6 +16,7 @@
   NSString *clientID;
   NSString *clientSecret;
   NSURL *redirectURL;
+  NSURL *cancelURL;
   NSURL *userURL;
   NSURL *tokenURL;
   LROAuth2AccessToken *accessToken;
@@ -29,6 +30,7 @@
 @property (nonatomic, copy) NSString *clientID;
 @property (nonatomic, copy) NSString *clientSecret;
 @property (nonatomic, copy) NSURL *redirectURL;
+@property (nonatomic, copy) NSURL *cancelURL;
 @property (nonatomic, copy) NSURL *userURL;
 @property (nonatomic, copy) NSURL *tokenURL;
 @property (nonatomic, readonly) LROAuth2AccessToken *accessToken;
