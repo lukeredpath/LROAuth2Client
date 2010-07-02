@@ -10,8 +10,9 @@
 
 @class LROAuth2Client;
 
-@protocol LROAuth2ClientDelegate <NSObject>
+@protocol LROAuth2ClientDelegate <UIWebViewDelegate>
 
+@required
 - (void)oauthClientDidReceiveAccessToken:(LROAuth2Client *)client;
 - (void)oauthClientDidRefreshAccessToken:(LROAuth2Client *)client;
 

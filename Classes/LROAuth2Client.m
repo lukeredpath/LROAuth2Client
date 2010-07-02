@@ -206,6 +206,11 @@
     
     return NO;
   }
+  
+  if ([self.delegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
+    return [self.delegate webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+  }
+  
   return YES;
 }
 
@@ -224,6 +229,24 @@
     if ([self.delegate respondsToSelector:@selector(oauthClientDidCancel:)]) {
       [self.delegate oauthClientDidCancel:self];
     }
+  }
+  
+  if ([self.delegate respondsToSelector:@selector(webView:didFailLoadWithError:)]) {
+    [self.delegate webView:webView didFailLoadWithError:error];
+  }
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+  if ([self.delegate respondsToSelector:@selector(webViewDidStartLoad:)]) {
+    [self.delegate webViewDidStartLoad:webView];
+  }
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+  if ([self.delegate respondsToSelector:@selector(webViewDidFinishLoad:)]) {
+    [self.delegate webViewDidFinishLoad:webView];
   }
 }
 
