@@ -1,3 +1,11 @@
+//
+//  NSString+QueryString.m
+//  LROAuth2Client
+//
+//  Created by Luke Redpath on 14/05/2010.
+//  Copyright 2010 LJR Software Limited. All rights reserved.
+//
+
 #import "NSString+QueryString.h"
 
 @implementation NSString (QueryString)
