@@ -151,8 +151,13 @@
   }
 }
 
-- (void)request:(ASIHTTPRequest *)request didReceiveData:(NSData *)data
+- (void)request:(ASIHTTPRequest *)request didReceiveData:(NSData *)rawData
 {
+  NSData* data = rawData;
+  if( [request isResponseCompressed]) {
+    data = [ASIHTTPRequest uncompressZippedData:rawData];
+  }
+    
   NSError *parseError = nil;
   NSDictionary *authorizationData = [data yajl_JSON:&parseError];
   
