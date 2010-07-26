@@ -165,6 +165,7 @@
     // try and decode the response body as a query string instead
     NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     authorizationData = [NSDictionary dictionaryWithFormEncodedString:responseString];
+    [responseString release];
     if ([authorizationData valueForKey:@"access_token"] == nil) { 
       // TODO handle complete parsing failure
       NSAssert(NO, @"Unhandled parsing failure");
