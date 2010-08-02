@@ -225,7 +225,7 @@
  */
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-  NSString *failingURLString = [error.userInfo objectForKey:NSErrorFailingURLStringKey];
+  NSString *failingURLString = [error.userInfo objectForKey:NSURLErrorFailingURLStringErrorKey];
   
   if ([failingURLString hasPrefix:[self.redirectURL absoluteString]]) {
     [webView stopLoading];
