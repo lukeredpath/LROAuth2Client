@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A3289D50122D707100D89A88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25E609911CFB581001DA5CD /* Foundation.framework */; };
 		A3289DAD122D707B00D89A88 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F8C124119DEFD50035081C /* SystemConfiguration.framework */; };
 		A3289DAE122D707B00D89A88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F8C126119DEFDE0035081C /* UIKit.framework */; };
 		A3289DAF122D708700D89A88 /* NSDictionary+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C24B119DF7420035081C /* NSDictionary+QueryString.m */; };
@@ -16,11 +15,26 @@
 		A3289DB2122D708700D89A88 /* LROAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8BFBB119DEE450035081C /* LROAuth2Client.m */; };
 		A3289DB3122D708700D89A88 /* LROAuth2AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8BFBE119DEE450035081C /* LROAuth2AccessToken.m */; };
 		A3289EA2122D755D00D89A88 /* YAJLIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3289EA1122D755D00D89A88 /* YAJLIOS.framework */; };
+		A3289EB6122D758F00D89A88 /* NSDictionary+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C24B119DF7420035081C /* NSDictionary+QueryString.m */; };
+		A3289EB7122D758F00D89A88 /* NSString+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C24C119DF7420035081C /* NSString+QueryString.m */; };
+		A3289EB8122D758F00D89A88 /* NSURL+QueryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C130119DF00D0035081C /* NSURL+QueryInspector.m */; };
+		A3289EB9122D758F00D89A88 /* LROAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8BFBB119DEE450035081C /* LROAuth2Client.m */; };
+		A3289EBA122D758F00D89A88 /* LROAuth2AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8BFBE119DEE450035081C /* LROAuth2AccessToken.m */; };
+		A3289EBC122D758F00D89A88 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F8C124119DEFD50035081C /* SystemConfiguration.framework */; };
+		A3289EBD122D758F00D89A88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F8C126119DEFDE0035081C /* UIKit.framework */; };
+		A3289EBF122D758F00D89A88 /* YAJLIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3289EA1122D755D00D89A88 /* YAJLIOS.framework */; };
+		A3289FD6122D819500D89A88 /* LROAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBA119DEE450035081C /* LROAuth2Client.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3289FD7122D819500D89A88 /* LROAuth2ClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBC119DEE450035081C /* LROAuth2ClientDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3289FD8122D819500D89A88 /* LROAuth2AccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBD119DEE450035081C /* LROAuth2AccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3289FD9122D819800D89A88 /* LROAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBA119DEE450035081C /* LROAuth2Client.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3289FDA122D819800D89A88 /* LROAuth2ClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBC119DEE450035081C /* LROAuth2ClientDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3289FDB122D819800D89A88 /* LROAuth2AccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBD119DEE450035081C /* LROAuth2AccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A3289D4B122D705500D89A88 /* liblibLROAuth2Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibLROAuth2Client.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3289D4B122D705500D89A88 /* libLROAuth2Client-Device.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libLROAuth2Client-Device.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3289EA1122D755D00D89A88 /* YAJLIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJLIOS.framework; path = Vendor/YAJLIOS.framework; sourceTree = "<group>"; };
+		A3289EC3122D758F00D89A88 /* libLROAuth2Client-Simulator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libLROAuth2Client-Simulator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F8BFBA119DEE450035081C /* LROAuth2Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LROAuth2Client.h; sourceTree = "<group>"; };
 		A3F8BFBB119DEE450035081C /* LROAuth2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LROAuth2Client.m; sourceTree = "<group>"; };
 		A3F8BFBC119DEE450035081C /* LROAuth2ClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LROAuth2ClientDelegate.h; sourceTree = "<group>"; };
@@ -55,10 +69,7 @@
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B25E603F11CFB44E001DA5CD /* Test App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test App-Info.plist"; sourceTree = "<group>"; };
 		B25E609711CFB581001DA5CD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		B25E609911CFB581001DA5CD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B25E609B11CFB581001DA5CD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		B25E609D11CFB581001DA5CD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		B25E609F11CFB581001DA5CD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +79,17 @@
 			files = (
 				A3289DAD122D707B00D89A88 /* SystemConfiguration.framework in Frameworks */,
 				A3289DAE122D707B00D89A88 /* UIKit.framework in Frameworks */,
-				A3289D50122D707100D89A88 /* Foundation.framework in Frameworks */,
 				A3289EA2122D755D00D89A88 /* YAJLIOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3289EBB122D758F00D89A88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3289EBC122D758F00D89A88 /* SystemConfiguration.framework in Frameworks */,
+				A3289EBD122D758F00D89A88 /* UIKit.framework in Frameworks */,
+				A3289EBF122D758F00D89A88 /* YAJLIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +99,8 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A3289D4B122D705500D89A88 /* liblibLROAuth2Client.a */,
+				A3289D4B122D705500D89A88 /* libLROAuth2Client-Device.a */,
+				A3289EC3122D758F00D89A88 /* libLROAuth2Client-Simulator.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,11 +114,6 @@
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 				B25E603F11CFB44E001DA5CD /* Test App-Info.plist */,
-				B25E609711CFB581001DA5CD /* CFNetwork.framework */,
-				B25E609911CFB581001DA5CD /* Foundation.framework */,
-				B25E609B11CFB581001DA5CD /* MobileCoreServices.framework */,
-				B25E609D11CFB581001DA5CD /* SystemConfiguration.framework */,
-				B25E609F11CFB581001DA5CD /* UIKit.framework */,
 			);
 			name = Untitled;
 			sourceTree = "<group>";
@@ -105,6 +121,8 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B25E609B11CFB581001DA5CD /* MobileCoreServices.framework */,
+				B25E609711CFB581001DA5CD /* CFNetwork.framework */,
 				A3289EA1122D755D00D89A88 /* YAJLIOS.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 				A3F8C124119DEFD50035081C /* SystemConfiguration.framework */,
@@ -206,15 +224,28 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3289FD6122D819500D89A88 /* LROAuth2Client.h in Headers */,
+				A3289FD7122D819500D89A88 /* LROAuth2ClientDelegate.h in Headers */,
+				A3289FD8122D819500D89A88 /* LROAuth2AccessToken.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3289EB4122D758F00D89A88 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3289FD9122D819800D89A88 /* LROAuth2Client.h in Headers */,
+				A3289FDA122D819800D89A88 /* LROAuth2ClientDelegate.h in Headers */,
+				A3289FDB122D819800D89A88 /* LROAuth2AccessToken.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A3289D4A122D705500D89A88 /* libLROAuth2Client */ = {
+		A3289D4A122D705500D89A88 /* LROAuth2Client-Device */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A3289DCD122D70A800D89A88 /* Build configuration list for PBXNativeTarget "libLROAuth2Client" */;
+			buildConfigurationList = A3289DCD122D70A800D89A88 /* Build configuration list for PBXNativeTarget "LROAuth2Client-Device" */;
 			buildPhases = (
 				A3289D47122D705500D89A88 /* Headers */,
 				A3289D48122D705500D89A88 /* Sources */,
@@ -224,9 +255,26 @@
 			);
 			dependencies = (
 			);
-			name = libLROAuth2Client;
+			name = "LROAuth2Client-Device";
 			productName = libLROAuth2Client;
-			productReference = A3289D4B122D705500D89A88 /* liblibLROAuth2Client.a */;
+			productReference = A3289D4B122D705500D89A88 /* libLROAuth2Client-Device.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A3289EB3122D758F00D89A88 /* LROAuth2Client-Simulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3289EC0122D758F00D89A88 /* Build configuration list for PBXNativeTarget "LROAuth2Client-Simulator" */;
+			buildPhases = (
+				A3289EB4122D758F00D89A88 /* Headers */,
+				A3289EB5122D758F00D89A88 /* Sources */,
+				A3289EBB122D758F00D89A88 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LROAuth2Client-Simulator";
+			productName = libLROAuth2Client;
+			productReference = A3289EC3122D758F00D89A88 /* libLROAuth2Client-Simulator.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -242,7 +290,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A3289D4A122D705500D89A88 /* libLROAuth2Client */,
+				A3289D4A122D705500D89A88 /* LROAuth2Client-Device */,
+				A3289EB3122D758F00D89A88 /* LROAuth2Client-Simulator */,
 			);
 		};
 /* End PBXProject section */
@@ -257,6 +306,18 @@
 				A3289DB1122D708700D89A88 /* NSURL+QueryInspector.m in Sources */,
 				A3289DB2122D708700D89A88 /* LROAuth2Client.m in Sources */,
 				A3289DB3122D708700D89A88 /* LROAuth2AccessToken.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3289EB5122D758F00D89A88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3289EB6122D758F00D89A88 /* NSDictionary+QueryString.m in Sources */,
+				A3289EB7122D758F00D89A88 /* NSString+QueryString.m in Sources */,
+				A3289EB8122D758F00D89A88 /* NSURL+QueryInspector.m in Sources */,
+				A3289EB9122D758F00D89A88 /* LROAuth2Client.m in Sources */,
+				A3289EBA122D758F00D89A88 /* LROAuth2AccessToken.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +372,7 @@
 					"-all_load",
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = libLROAuth2Client;
+				PRODUCT_NAME = "LROAuth2Client-Device";
 			};
 			name = Debug;
 		};
@@ -334,7 +395,56 @@
 					"-all_load",
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = libLROAuth2Client;
+				PRODUCT_NAME = "LROAuth2Client-Device";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		A3289EC1122D758F00D89A88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Vendor/yajl-objc/Project-IPhone/build/Framework\"",
+					"\"$(SRCROOT)/Classes\"",
+					"\"$(SRCROOT)/Vendor\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = LROAuth2Client_Prefix.pch;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "LROAuth2Client-Simulator";
+				SDKROOT = iphonesimulator4.0;
+			};
+			name = Debug;
+		};
+		A3289EC2122D758F00D89A88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Vendor/yajl-objc/Project-IPhone/build/Framework\"",
+					"\"$(SRCROOT)/Classes\"",
+					"\"$(SRCROOT)/Vendor\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PREFIX_HEADER = LROAuth2Client_Prefix.pch;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "LROAuth2Client-Simulator";
+				SDKROOT = iphonesimulator4.0;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -351,11 +461,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A3289DCD122D70A800D89A88 /* Build configuration list for PBXNativeTarget "libLROAuth2Client" */ = {
+		A3289DCD122D70A800D89A88 /* Build configuration list for PBXNativeTarget "LROAuth2Client-Device" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A3289D4C122D705600D89A88 /* Debug */,
 				A3289D4D122D705600D89A88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3289EC0122D758F00D89A88 /* Build configuration list for PBXNativeTarget "LROAuth2Client-Simulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3289EC1122D758F00D89A88 /* Debug */,
+				A3289EC2122D758F00D89A88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
