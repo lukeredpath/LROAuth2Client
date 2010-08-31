@@ -1,6 +1,3 @@
 [submodule "Vendor/ASIHTTPRequest"]
 	path = Vendor/ASIHTTPRequest
 	url = http://github.com/pokeb/asi-http-request.git
-[submodule "Vendor/yajl-objc"]
-	path = Vendor/yajl-objc
-	url = http://github.com/gabriel/yajl-objc.git

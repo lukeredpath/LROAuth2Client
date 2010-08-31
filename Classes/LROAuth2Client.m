@@ -6,10 +6,10 @@
 //  Copyright 2010 LJR Software Limited. All rights reserved.
 //
 
+#import <YAJLIOS/NSObject+YAJL.h>
 #import "LROAuth2Client.h"
 #import "ASIHTTPRequest.h"
 #import "NSURL+QueryInspector.h"
-#import "NSObject+YAJL.h"
 #import "LROAuth2AccessToken.h"
 #import "NSDictionary+QueryString.h"
 
