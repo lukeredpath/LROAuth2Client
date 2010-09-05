@@ -405,6 +405,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "LROAuth2Client-Device";
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
@@ -428,6 +429,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "LROAuth2Client-Device";
+				SDKROOT = iphoneos4.0;
 				ZERO_LINK = NO;
 			};
 			name = Release;

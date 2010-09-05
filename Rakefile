@@ -4,7 +4,7 @@ TARGET_NAME = "LROAuth2Client"
 
 module XcodeBuild
   class BuildTask < Rake::TaskLib
-    attr_accessor :target, :configuration
+    attr_accessor :target, :configuration, :sdk
     
     def initialize(name)
       @name = name
@@ -18,7 +18,7 @@ module XcodeBuild
       
       desc "Build the #{target} target in #{configuration}"
       task @name do
-        system("xcodebuild -target #{target} -configuration #{configuration} build")
+        system("xcodebuild -target #{target} -configuration #{configuration} build -sdk #{sdk}")
       end
     end
   end
@@ -32,15 +32,19 @@ def xcodebuild(name, &block)
   XcodeBuild::BuildTask.new(name, &block)
 end
 
+SDK_VERSION = ENV['SDK'] || '4.0'
+
 namespace :build do
   xcodebuild :device do |t|
     t.target        = "#{TARGET_NAME}-Device"
     t.configuration = "Release"
+    t.sdk           = "iphoneos#{SDK_VERSION}"
   end
 
   xcodebuild :simulator do |t|
     t.target        = "#{TARGET_NAME}-Simulator"
     t.configuration = "Release"
+    t.sdk           = "iphonesimulator#{SDK_VERSION}"
   end
   
   desc "Build the combined static library"

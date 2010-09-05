@@ -225,7 +225,12 @@
  */
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
+  
+#if __IPHONE_OS_VERSION_MAX_ALLOWED <= __IPHONE_3_2
+  NSString *failingURLString = [error.userInfo objectForKey:NSErrorFailingURLStringKey];
+#else
   NSString *failingURLString = [error.userInfo objectForKey:NSURLErrorFailingURLStringErrorKey];
+#endif
   
   if ([failingURLString hasPrefix:[self.redirectURL absoluteString]]) {
     [webView stopLoading];
