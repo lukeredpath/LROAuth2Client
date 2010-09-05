@@ -31,6 +31,20 @@
 		A3289FDB122D819800D89A88 /* LROAuth2AccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBD119DEE450035081C /* LROAuth2AccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3AE5C19123403C30022C255 /* ASIHTTPRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C0D4119DEF400035081C /* ASIHTTPRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3AE5C1A123403C90022C255 /* ASIHTTPRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C0D4119DEF400035081C /* ASIHTTPRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3AE5CC71234107A0022C255 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0CF119DEF400035081C /* ASIAuthenticationDialog.m */; };
+		A3AE5CC81234107A0022C255 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0D1119DEF400035081C /* ASIFormDataRequest.m */; };
+		A3AE5CC91234107A0022C255 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0D3119DEF400035081C /* ASIHTTPRequest.m */; };
+		A3AE5CCA1234107A0022C255 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0D6119DEF400035081C /* ASIInputStream.m */; };
+		A3AE5CCB1234107A0022C255 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0D8119DEF400035081C /* ASINetworkQueue.m */; };
+		A3AE5CCC1234107A0022C255 /* ASINSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0DA119DEF400035081C /* ASINSStringAdditions.m */; };
+		A3AE5CCD1234107A0022C255 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0F0119DEF770035081C /* Reachability.m */; };
+		A3AE5CCE1234107B0022C255 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0CF119DEF400035081C /* ASIAuthenticationDialog.m */; };
+		A3AE5CCF1234107B0022C255 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0D1119DEF400035081C /* ASIFormDataRequest.m */; };
+		A3AE5CD01234107B0022C255 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0D3119DEF400035081C /* ASIHTTPRequest.m */; };
+		A3AE5CD11234107B0022C255 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0D6119DEF400035081C /* ASIInputStream.m */; };
+		A3AE5CD21234107B0022C255 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0D8119DEF400035081C /* ASINetworkQueue.m */; };
+		A3AE5CD31234107B0022C255 /* ASINSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0DA119DEF400035081C /* ASINSStringAdditions.m */; };
+		A3AE5CD41234107B0022C255 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C0F0119DEF770035081C /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -310,6 +324,13 @@
 				A3289DB1122D708700D89A88 /* NSURL+QueryInspector.m in Sources */,
 				A3289DB2122D708700D89A88 /* LROAuth2Client.m in Sources */,
 				A3289DB3122D708700D89A88 /* LROAuth2AccessToken.m in Sources */,
+				A3AE5CC71234107A0022C255 /* ASIAuthenticationDialog.m in Sources */,
+				A3AE5CC81234107A0022C255 /* ASIFormDataRequest.m in Sources */,
+				A3AE5CC91234107A0022C255 /* ASIHTTPRequest.m in Sources */,
+				A3AE5CCA1234107A0022C255 /* ASIInputStream.m in Sources */,
+				A3AE5CCB1234107A0022C255 /* ASINetworkQueue.m in Sources */,
+				A3AE5CCC1234107A0022C255 /* ASINSStringAdditions.m in Sources */,
+				A3AE5CCD1234107A0022C255 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +343,13 @@
 				A3289EB8122D758F00D89A88 /* NSURL+QueryInspector.m in Sources */,
 				A3289EB9122D758F00D89A88 /* LROAuth2Client.m in Sources */,
 				A3289EBA122D758F00D89A88 /* LROAuth2AccessToken.m in Sources */,
+				A3AE5CCE1234107B0022C255 /* ASIAuthenticationDialog.m in Sources */,
+				A3AE5CCF1234107B0022C255 /* ASIFormDataRequest.m in Sources */,
+				A3AE5CD01234107B0022C255 /* ASIHTTPRequest.m in Sources */,
+				A3AE5CD11234107B0022C255 /* ASIInputStream.m in Sources */,
+				A3AE5CD21234107B0022C255 /* ASINetworkQueue.m in Sources */,
+				A3AE5CD31234107B0022C255 /* ASINSStringAdditions.m in Sources */,
+				A3AE5CD41234107B0022C255 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
