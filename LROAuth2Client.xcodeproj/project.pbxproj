@@ -29,6 +29,8 @@
 		A3289FD9122D819800D89A88 /* LROAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBA119DEE450035081C /* LROAuth2Client.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3289FDA122D819800D89A88 /* LROAuth2ClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBC119DEE450035081C /* LROAuth2ClientDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3289FDB122D819800D89A88 /* LROAuth2AccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBD119DEE450035081C /* LROAuth2AccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3AE5C19123403C30022C255 /* ASIHTTPRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C0D4119DEF400035081C /* ASIHTTPRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3AE5C1A123403C90022C255 /* ASIHTTPRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8C0D4119DEF400035081C /* ASIHTTPRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -224,6 +226,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3AE5C19123403C30022C255 /* ASIHTTPRequestDelegate.h in Headers */,
 				A3289FD6122D819500D89A88 /* LROAuth2Client.h in Headers */,
 				A3289FD7122D819500D89A88 /* LROAuth2ClientDelegate.h in Headers */,
 				A3289FD8122D819500D89A88 /* LROAuth2AccessToken.h in Headers */,
@@ -234,6 +237,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3AE5C1A123403C90022C255 /* ASIHTTPRequestDelegate.h in Headers */,
 				A3289FD9122D819800D89A88 /* LROAuth2Client.h in Headers */,
 				A3289FDA122D819800D89A88 /* LROAuth2ClientDelegate.h in Headers */,
 				A3289FDB122D819800D89A88 /* LROAuth2AccessToken.h in Headers */,
