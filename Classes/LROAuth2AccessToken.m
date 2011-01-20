@@ -8,20 +8,25 @@
 
 #import "LROAuth2AccessToken.h"
 
+@interface LROAuth2AccessToken ()
+@property (nonatomic, copy) NSDictionary *authResponseData;
+- (void)extractExpiresAtFromResponse;
+@end
+
+#pragma mark -
 
 @implementation LROAuth2AccessToken
 
 @dynamic accessToken;
 @dynamic refreshToken;
+@synthesize authResponseData;
 @synthesize expiresAt;
 
-- (id)initWithAuthorizationResponse:(NSDictionary *)_data;
+- (id)initWithAuthorizationResponse:(NSDictionary *)data;
 {
   if (self = [super init]) {
-    authResponseData = [_data copy];
-    
-    NSTimeInterval expiresIn = (NSTimeInterval)[[authResponseData valueForKey:@"expires_in"] intValue];
-    expiresAt = [[NSDate alloc] initWithTimeIntervalSinceNow:expiresIn];
+    authResponseData = [data copy];
+    [self extractExpiresAtFromResponse];    
   }
   return self;
 }
@@ -43,17 +48,22 @@
   return ([[NSDate date] earlierDate:expiresAt] == expiresAt);
 }
 
-- (void)refreshFromAuthorizationResponse:(NSDictionary *)_data;
+- (void)refreshFromAuthorizationResponse:(NSDictionary *)data;
 {
-  NSMutableDictionary *_tokenData = [authResponseData mutableCopy];
-  [_tokenData setValue:[_data valueForKey:@"access_token"] forKey:@"access_token"];
+  NSMutableDictionary *tokenData = [self.authResponseData mutableCopy];
+
+  [tokenData setObject:[data valueForKey:@"access_token"] forKey:@"access_token"];
+  [tokenData setObject:[data objectForKey:@"expires_in"]  forKey:@"expires_in"];
   
-  NSTimeInterval expiresIn = (NSTimeInterval)[[authResponseData valueForKey:@"expires_in"] intValue];
+  [self setAuthResponseData:tokenData];
+  [tokenData release];
+  [self extractExpiresAtFromResponse];
+}
+
+- (void)extractExpiresAtFromResponse
+{
+  NSTimeInterval expiresIn = (NSTimeInterval)[[self.authResponseData objectForKey:@"expires_in"] intValue];
   expiresAt = [[NSDate alloc] initWithTimeIntervalSinceNow:expiresIn];
-  
-  [authResponseData release];
-  authResponseData = [_tokenData copy];
-  [_tokenData release];
 }
 
 #pragma mark -
