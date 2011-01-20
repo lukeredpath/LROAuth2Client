@@ -71,12 +71,12 @@
 
 - (NSString *)accessToken;
 {
-  return [authResponseData valueForKey:@"access_token"];
+  return [authResponseData objectForKey:@"access_token"];
 }
 
 - (NSString *)refreshToken;
 {
-  return [authResponseData valueForKey:@"refresh_token"];
+  return [authResponseData objectForKey:@"refresh_token"];
 }
 
 #pragma mark -
