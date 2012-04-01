@@ -13,8 +13,8 @@
   NSDictionary *authResponseData;
   NSDate *expiresAt;
 }
-@property (nonatomic, readonly) NSString *accessToken;
-@property (nonatomic, readonly) NSString *refreshToken;
+@property (unsafe_unretained, nonatomic, readonly) NSString *accessToken;
+@property (unsafe_unretained, nonatomic, readonly) NSString *refreshToken;
 @property (nonatomic, readonly) NSDate *expiresAt;
 
 - (id)initWithAuthorizationResponse:(NSDictionary *)_data;

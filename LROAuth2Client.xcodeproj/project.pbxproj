@@ -14,7 +14,6 @@
 		A3289DB1122D708700D89A88 /* NSURL+QueryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C130119DF00D0035081C /* NSURL+QueryInspector.m */; };
 		A3289DB2122D708700D89A88 /* LROAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8BFBB119DEE450035081C /* LROAuth2Client.m */; };
 		A3289DB3122D708700D89A88 /* LROAuth2AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8BFBE119DEE450035081C /* LROAuth2AccessToken.m */; };
-		A3289EA2122D755D00D89A88 /* YAJLIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3289EA1122D755D00D89A88 /* YAJLIOS.framework */; };
 		A3289EB6122D758F00D89A88 /* NSDictionary+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C24B119DF7420035081C /* NSDictionary+QueryString.m */; };
 		A3289EB7122D758F00D89A88 /* NSString+QueryString.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C24C119DF7420035081C /* NSString+QueryString.m */; };
 		A3289EB8122D758F00D89A88 /* NSURL+QueryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8C130119DF00D0035081C /* NSURL+QueryInspector.m */; };
@@ -22,7 +21,6 @@
 		A3289EBA122D758F00D89A88 /* LROAuth2AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8BFBE119DEE450035081C /* LROAuth2AccessToken.m */; };
 		A3289EBC122D758F00D89A88 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F8C124119DEFD50035081C /* SystemConfiguration.framework */; };
 		A3289EBD122D758F00D89A88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F8C126119DEFDE0035081C /* UIKit.framework */; };
-		A3289EBF122D758F00D89A88 /* YAJLIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3289EA1122D755D00D89A88 /* YAJLIOS.framework */; };
 		A3289FD6122D819500D89A88 /* LROAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBA119DEE450035081C /* LROAuth2Client.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3289FD7122D819500D89A88 /* LROAuth2ClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBC119DEE450035081C /* LROAuth2ClientDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A3289FD8122D819500D89A88 /* LROAuth2AccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = A3F8BFBD119DEE450035081C /* LROAuth2AccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,7 +35,6 @@
 
 /* Begin PBXFileReference section */
 		A3289D4B122D705500D89A88 /* libLROAuth2Client-Device.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libLROAuth2Client-Device.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3289EA1122D755D00D89A88 /* YAJLIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YAJLIOS.framework; path = Vendor/YAJLIOS.framework; sourceTree = "<group>"; };
 		A3289EC3122D758F00D89A88 /* libLROAuth2Client-Simulator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libLROAuth2Client-Simulator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3ABE4D41528797B006E9AC0 /* LRURLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRURLRequestOperation.h; sourceTree = "<group>"; };
 		A3ABE4D51528797B006E9AC0 /* LRURLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LRURLRequestOperation.m; sourceTree = "<group>"; };
@@ -68,7 +65,6 @@
 			files = (
 				A3289DAD122D707B00D89A88 /* SystemConfiguration.framework in Frameworks */,
 				A3289DAE122D707B00D89A88 /* UIKit.framework in Frameworks */,
-				A3289EA2122D755D00D89A88 /* YAJLIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +74,6 @@
 			files = (
 				A3289EBC122D758F00D89A88 /* SystemConfiguration.framework in Frameworks */,
 				A3289EBD122D758F00D89A88 /* UIKit.framework in Frameworks */,
-				A3289EBF122D758F00D89A88 /* YAJLIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +106,6 @@
 			children = (
 				B25E609B11CFB581001DA5CD /* MobileCoreServices.framework */,
 				B25E609711CFB581001DA5CD /* CFNetwork.framework */,
-				A3289EA1122D755D00D89A88 /* YAJLIOS.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 				A3F8C124119DEFD50035081C /* SystemConfiguration.framework */,
 				A3F8C126119DEFDE0035081C /* UIKit.framework */,
@@ -364,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -374,6 +369,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = LROAuth2Client_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -388,6 +384,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -398,6 +395,7 @@
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PREFIX_HEADER = LROAuth2Client_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",

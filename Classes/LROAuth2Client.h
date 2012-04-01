@@ -20,7 +20,7 @@
   NSURL *tokenURL;
   LROAuth2AccessToken *accessToken;
   NSMutableArray *requests;
-  id<LROAuth2ClientDelegate> delegate;
+  id<LROAuth2ClientDelegate> __unsafe_unretained delegate;
   BOOL debug;
   
  @private
@@ -33,7 +33,7 @@
 @property (nonatomic, copy) NSURL *userURL;
 @property (nonatomic, copy) NSURL *tokenURL;
 @property (nonatomic, readonly) LROAuth2AccessToken *accessToken;
-@property (nonatomic, assign) id<LROAuth2ClientDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id<LROAuth2ClientDelegate> delegate;
 @property (nonatomic, assign) BOOL debug;
 
 - (id)initWithClientID:(NSString *)_clientID 

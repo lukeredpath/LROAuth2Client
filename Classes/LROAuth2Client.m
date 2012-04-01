@@ -6,7 +6,6 @@
 //  Copyright 2010 LJR Software Limited. All rights reserved.
 //
 
-#import <YAJLIOS/NSObject+YAJL.h>
 #import "LROAuth2Client.h"
 #import "NSURL+QueryInspector.h"
 #import "LROAuth2AccessToken.h"
@@ -47,14 +46,6 @@
 - (void)dealloc;
 {
   [_networkQueue cancelAllOperations];
-  [accessToken release];
-  [clientID release];
-  [clientSecret release];
-  [userURL release];
-  [tokenURL release];
-  [redirectURL release];
-  [cancelURL release];
-  [super dealloc];
 }
 
 #pragma mark -
@@ -76,7 +67,7 @@
   NSMutableURLRequest *authRequest = [NSMutableURLRequest requestWithURL:fullURL];
   [authRequest setHTTPMethod:@"GET"];
 
-  return [[authRequest copy] autorelease];
+  return [authRequest copy];
 }
 
 - (void)verifyAuthorizationWithAccessCode:(NSString *)accessCode;
@@ -98,10 +89,12 @@
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPBody:[[params stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
     
-    __block LRURLRequestOperation *operation = [[LRURLRequestOperation alloc] initWithURLRequest:request];
+    LRURLRequestOperation *operation = [[LRURLRequestOperation alloc] initWithURLRequest:request];
+
+    __unsafe_unretained id blockOperation = operation;
 
     [operation setCompletionBlock:^{
-      [self handleCompletionForAuthorizationRequestOperation:operation];
+      [self handleCompletionForAuthorizationRequestOperation:blockOperation];
     }];
       
     [_networkQueue addOperation:operation];
@@ -110,7 +103,7 @@
 
 - (void)refreshAccessToken:(LROAuth2AccessToken *)_accessToken;
 {
-  accessToken = [_accessToken retain];
+  accessToken = _accessToken;
   
   NSDictionary *params = [NSMutableDictionary dictionary];
   [params setValue:@"refresh" forKey:@"type"];
@@ -124,10 +117,12 @@
   [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
   [request setHTTPBody:[[params stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
   
-  __block LRURLRequestOperation *operation = [[LRURLRequestOperation alloc] initWithURLRequest:request];
+  LRURLRequestOperation *operation = [[LRURLRequestOperation alloc] initWithURLRequest:request];
+  
+  __unsafe_unretained id blockOperation = operation;
   
   [operation setCompletionBlock:^{
-    [self handleCompletionForAuthorizationRequestOperation:operation];
+    [self handleCompletionForAuthorizationRequestOperation:blockOperation];
   }];
   
   [_networkQueue addOperation:operation];

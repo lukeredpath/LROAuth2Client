@@ -31,12 +31,6 @@
   return self;
 }
 
-- (void)dealloc;
-{
-  [expiresAt release];
-  [authResponseData release];
-  [super dealloc];
-}
 
 - (NSString *)description;
 {
@@ -56,7 +50,6 @@
   [tokenData setObject:[data objectForKey:@"expires_in"]  forKey:@"expires_in"];
   
   [self setAuthResponseData:tokenData];
-  [tokenData release];
   [self extractExpiresAtFromResponse];
 }
 
@@ -92,7 +85,7 @@
 {
   if (self = [super init]) {
     authResponseData = [[aDecoder decodeObjectForKey:@"data"] copy];
-    expiresAt = [[aDecoder decodeObjectForKey:@"expiresAt"] retain];
+    expiresAt = [aDecoder decodeObjectForKey:@"expiresAt"];
   }
   return self;
 }
