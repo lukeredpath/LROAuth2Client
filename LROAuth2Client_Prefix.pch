@@ -10,5 +10,4 @@
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
     #import "Availability.h"
-    #import "ASIHTTPRequestConfig.h"
 #endif

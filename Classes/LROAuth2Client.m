@@ -8,14 +8,16 @@
 
 #import <YAJLIOS/NSObject+YAJL.h>
 #import "LROAuth2Client.h"
-#import "ASIHTTPRequest.h"
 #import "NSURL+QueryInspector.h"
 #import "LROAuth2AccessToken.h"
+#import "LRURLRequestOperation.h"
 #import "NSDictionary+QueryString.h"
 
 #pragma mark -
 
-@implementation LROAuth2Client
+@implementation LROAuth2Client {
+  NSOperationQueue *_networkQueue;
+}
 
 @synthesize clientID;
 @synthesize clientSecret;
@@ -37,17 +39,14 @@
     redirectURL = [url copy];
     requests = [[NSMutableArray alloc] init];
     debug = NO;
+    _networkQueue = [[NSOperationQueue alloc] init];
   }
   return self;
 }
 
 - (void)dealloc;
 {
-  for (ASIHTTPRequest *request in requests) {
-    [request setDelegate:nil];
-    [request cancel];
-  }
-  [requests release];
+  [_networkQueue cancelAllOperations];
   [accessToken release];
   [clientID release];
   [clientSecret release];
@@ -94,13 +93,18 @@
     [params setValue:clientSecret forKey:@"client_secret"];
     [params setValue:accessCode forKey:@"code"];
     
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:self.tokenURL];
-    [request setRequestMethod:@"POST"];
-    [request addRequestHeader:@"Content-Type" value:@"application/x-www-form-urlencoded"];
-    [request appendPostData:[[params stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
-    [request setDelegate:self];
-    [requests addObject:request];
-    [request startAsynchronous];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:self.tokenURL];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:[[params stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    __block LRURLRequestOperation *operation = [[LRURLRequestOperation alloc] initWithURLRequest:request];
+
+    [operation setCompletionBlock:^{
+      [self handleCompletionForAuthorizationRequestOperation:operation];
+    }];
+      
+    [_networkQueue addOperation:operation];
   }
 }
 
@@ -115,71 +119,51 @@
   [params setValue:clientSecret forKey:@"client_secret"];
   [params setValue:_accessToken.refreshToken forKey:@"refresh_token"];
   
-  ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:self.tokenURL];
-  [request setRequestMethod:@"POST"];
-  [request addRequestHeader:@"Content-Type" value:@"application/x-www-form-urlencoded"];
-  [request appendPostData:[[params stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
-  [request setDelegate:self];
-  [requests addObject:request];
-  [request startAsynchronous];
-}
-
-#pragma mark -
-#pragma mark ASIHTTPRequestDelegate methods
-
-- (void)requestStarted:(ASIHTTPRequest *)request
-{
-  if (self.debug) {
-    NSLog(@"[oauth] starting verification request");
-  }
-}
-
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
-  if (self.debug) {
-    NSLog(@"[oauth] finished verification request, %@ (%d)", [request responseString], [request responseStatusCode]);
-  }
-  isVerifying = NO;
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:self.tokenURL];
+  [request setHTTPMethod:@"POST"];
+  [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+  [request setHTTPBody:[[params stringWithFormEncodedComponents] dataUsingEncoding:NSUTF8StringEncoding]];
   
-  [requests removeObject:request];
+  __block LRURLRequestOperation *operation = [[LRURLRequestOperation alloc] initWithURLRequest:request];
+  
+  [operation setCompletionBlock:^{
+    [self handleCompletionForAuthorizationRequestOperation:operation];
+  }];
+  
+  [_networkQueue addOperation:operation];
 }
 
-- (void)requestFailed:(ASIHTTPRequest *)request
+- (void)handleCompletionForAuthorizationRequestOperation:(LRURLRequestOperation *)operation
 {
-  if (self.debug) {
-    NSLog(@"[oauth] request failed with code %d, %@", [request responseStatusCode], [request responseString]);
-  }
-}
-
-- (void)request:(ASIHTTPRequest *)request didReceiveData:(NSData *)rawData
-{
-  NSData* data = rawData;
-  if( [request isResponseCompressed]) {
-    data = [ASIHTTPRequest uncompressZippedData:rawData];
-  }
+  NSHTTPURLResponse *response = (NSHTTPURLResponse *)operation.URLResponse;
+  
+  if (response.statusCode == 200) {
+    NSError *parserError;
+    NSDictionary *authData = [NSJSONSerialization JSONObjectWithData:operation.responseData options:0 error:&parserError];
     
-  NSError *parseError = nil;
-  NSDictionary *authorizationData = [data yajl_JSON:&parseError];
-  
-  if (parseError) {
-    // try and decode the response body as a query string instead
-    NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    authorizationData = [NSDictionary dictionaryWithFormEncodedString:responseString];
-    [responseString release];
-    if ([authorizationData valueForKey:@"access_token"] == nil) { 
-      // TODO handle complete parsing failure
+    if (authData == nil) {
+      // try and decode the response body as a query string instead
+      NSString *responseString = [[NSString alloc] initWithData:operation.responseData encoding:NSUTF8StringEncoding];
+      authData = [NSDictionary dictionaryWithFormEncodedString:responseString];
+    }
+    if ([authData objectForKey:@"access_token"] == nil) {
       NSAssert(NO, @"Unhandled parsing failure");
     }
-  }  
-  if (accessToken == nil) {
-    accessToken = [[LROAuth2AccessToken alloc] initWithAuthorizationResponse:authorizationData];
-    if ([self.delegate respondsToSelector:@selector(oauthClientDidReceiveAccessToken:)]) {
-      [self.delegate oauthClientDidReceiveAccessToken:self];
-    } 
-  } else {
-    [accessToken refreshFromAuthorizationResponse:authorizationData];
-    if ([self.delegate respondsToSelector:@selector(oauthClientDidRefreshAccessToken:)]) {
-      [self.delegate oauthClientDidRefreshAccessToken:self];
+    if (accessToken == nil) {
+      accessToken = [[LROAuth2AccessToken alloc] initWithAuthorizationResponse:authData];
+      if ([self.delegate respondsToSelector:@selector(oauthClientDidReceiveAccessToken:)]) {
+        [self.delegate oauthClientDidReceiveAccessToken:self];
+      } 
+    } else {
+      [accessToken refreshFromAuthorizationResponse:authData];
+      if ([self.delegate respondsToSelector:@selector(oauthClientDidRefreshAccessToken:)]) {
+        [self.delegate oauthClientDidRefreshAccessToken:self];
+      }
+    }
+  }
+  else {
+    if (operation.connectionError) {
+      NSLog(@"Connection error: %@", operation.connectionError);
     }
   }
 }

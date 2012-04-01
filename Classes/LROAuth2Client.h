@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ASIHTTPRequestDelegate.h"
 #import "LROAuth2ClientDelegate.h"
 
 @class LROAuth2AccessToken;
 
-@interface LROAuth2Client : NSObject <ASIHTTPRequestDelegate> {
+@interface LROAuth2Client : NSObject {
   NSString *clientID;
   NSString *clientSecret;
   NSURL *redirectURL;
@@ -25,7 +24,7 @@
   BOOL debug;
   
  @private
-  BOOL isVerifying;   
+  BOOL isVerifying;
 }
 @property (nonatomic, copy) NSString *clientID;
 @property (nonatomic, copy) NSString *clientSecret;
