@@ -78,10 +78,10 @@
     isVerifying = YES;
     
     NSDictionary *params = [NSMutableDictionary dictionary];
-    [params setValue:@"web_server" forKey:@"type"];
+    [params setValue:@"authorization_code" forKey:@"grant_type"];
     [params setValue:clientID forKey:@"client_id"];
-    [params setValue:[redirectURL absoluteString] forKey:@"redirect_uri"];
     [params setValue:clientSecret forKey:@"client_secret"];
+    [params setValue:[redirectURL absoluteString] forKey:@"redirect_uri"];
     [params setValue:accessCode forKey:@"code"];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:self.tokenURL];
@@ -106,10 +106,10 @@
   accessToken = _accessToken;
   
   NSDictionary *params = [NSMutableDictionary dictionary];
-  [params setValue:@"refresh" forKey:@"type"];
+  [params setValue:@"refresh_token" forKey:@"grant_type"];
   [params setValue:clientID forKey:@"client_id"];
-  [params setValue:[redirectURL absoluteString] forKey:@"redirect_uri"];
   [params setValue:clientSecret forKey:@"client_secret"];
+  [params setValue:[redirectURL absoluteString] forKey:@"redirect_uri"];
   [params setValue:_accessToken.refreshToken forKey:@"refresh_token"];
   
   NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:self.tokenURL];
